@@ -1,32 +1,36 @@
 //
-//  ViewController.m
+//  ListViewController.m
 //  Timer
 //
 //  Created by myuon on 2014/12/14.
 //  Copyright (c) 2014年 yasu. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ListViewController.h"
 
-#import <TimerLib/TimerService.h>
-
-@interface ViewController ()
+@interface ListViewController ()
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @end
 
-@interface ViewController (TableView) <UITableViewDataSource, UITableViewDelegate>
+@interface ListViewController (TableView) <UITableViewDataSource, UITableViewDelegate>
 @end
 
-@interface ViewController (Action)
+@interface ListViewController (Action)
 - (IBAction)didTapAddButton:(id)sender;
 @end
 
-@implementation ViewController
+@implementation ListViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+}
+
 @end
 
 ////////////////////////////////////////////////////////////////////////////////
 
-@implementation ViewController (TableView)
+@implementation ListViewController (TableView)
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 0;
@@ -45,7 +49,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-@implementation ViewController (Action)
+@implementation ListViewController (Action)
 
 - (void)didTapAddButton:(id)sender {
     NSLog(@"%s", __PRETTY_FUNCTION__);

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ListViewController.h
 //  Timer
 //
 //  Created by myuon on 2014/12/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ListViewController : UIViewController
 
 
 @end
