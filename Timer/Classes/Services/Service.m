@@ -18,7 +18,7 @@
     NSString *className = NSStringFromClass(self);
     id service = [services objectForKey:className];
     if (!service ) {
-        service = [[self class] init];
+        service = [[[self class] alloc] init];
         NSAssert(service, @"could not instantiate");
 
         [services setObject:service forKey:className];

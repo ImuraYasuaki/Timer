@@ -13,10 +13,17 @@
 		8826597A1A3D95E90031D412 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882659781A3D95E90031D412 /* LaunchScreen.xib */; };
 		882659861A3D95EA0031D412 /* TimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 882659851A3D95EA0031D412 /* TimerTests.m */; };
 		88AA592E1A3DAA3600C81DDA /* TimerDTO.mm in Sources */ = {isa = PBXBuildFile; fileRef = 88AA592D1A3DAA3600C81DDA /* TimerDTO.mm */; };
-		88AA59311A45186F00C81DDA /* ListViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 88AA59301A45186F00C81DDA /* ListViewController.mm */; };
+		88AA59311A45186F00C81DDA /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AA59301A45186F00C81DDA /* ListViewController.m */; };
 		88AA59341A45187300C81DDA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AA59331A45187300C81DDA /* AppDelegate.m */; };
 		88AA593A1A451F7900C81DDA /* TimerService.mm in Sources */ = {isa = PBXBuildFile; fileRef = 88AA59391A451F7900C81DDA /* TimerService.mm */; };
 		88AA593D1A45823500C81DDA /* Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AA593C1A45823500C81DDA /* Service.m */; };
+		88AA59411A458D8000C81DDA /* libTimerLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D148DE1A3D9F5700255E52 /* libTimerLib.a */; };
+		88AA59441A45938500C81DDA /* Configuration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 88AA59431A45938500C81DDA /* Configuration.mm */; };
+		88AA59481A4725E000C81DDA /* TimerServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AA59471A4725E000C81DDA /* TimerServiceTest.m */; };
+		88AA594C1A4726F800C81DDA /* NSObject+Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AA594B1A4726F800C81DDA /* NSObject+Debug.m */; };
+		88AA594D1A47EBCB00C81DDA /* Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AA593C1A45823500C81DDA /* Service.m */; };
+		88AA594E1A47EBD200C81DDA /* TimerService.mm in Sources */ = {isa = PBXBuildFile; fileRef = 88AA59391A451F7900C81DDA /* TimerService.mm */; };
+		88AA594F1A47EC2600C81DDA /* Configuration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 88AA59431A45938500C81DDA /* Configuration.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +33,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 882659651A3D95E90031D412;
 			remoteInfo = Timer;
+		};
+		88AA593F1A458D7800C81DDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88D148D31A3D9F5700255E52 /* Timer_Core.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 88265A181A3D96780031D412;
+			remoteInfo = TimerLib;
 		};
 		88D148D91A3D9F5700255E52 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -63,13 +77,18 @@
 		88AA592C1A3DAA3600C81DDA /* TimerDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerDTO.h; sourceTree = "<group>"; };
 		88AA592D1A3DAA3600C81DDA /* TimerDTO.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TimerDTO.mm; sourceTree = "<group>"; };
 		88AA592F1A45186F00C81DDA /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
-		88AA59301A45186F00C81DDA /* ListViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ListViewController.mm; sourceTree = "<group>"; };
+		88AA59301A45186F00C81DDA /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		88AA59321A45187300C81DDA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		88AA59331A45187300C81DDA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		88AA59381A451F7900C81DDA /* TimerService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerService.h; sourceTree = "<group>"; };
 		88AA59391A451F7900C81DDA /* TimerService.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TimerService.mm; sourceTree = "<group>"; };
 		88AA593B1A45823500C81DDA /* Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Service.h; sourceTree = "<group>"; };
 		88AA593C1A45823500C81DDA /* Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Service.m; sourceTree = "<group>"; };
+		88AA59421A45938500C81DDA /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
+		88AA59431A45938500C81DDA /* Configuration.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Configuration.mm; sourceTree = "<group>"; };
+		88AA59471A4725E000C81DDA /* TimerServiceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerServiceTest.m; sourceTree = "<group>"; };
+		88AA594A1A4726F800C81DDA /* NSObject+Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Debug.h"; sourceTree = "<group>"; };
+		88AA594B1A4726F800C81DDA /* NSObject+Debug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Debug.m"; sourceTree = "<group>"; };
 		88D148D31A3D9F5700255E52 /* Timer_Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Timer_Core.xcodeproj; path = ../../Timer_Core/Timer_Core.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88AA59411A458D8000C81DDA /* libTimerLib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +156,7 @@
 			children = (
 				882659851A3D95EA0031D412 /* TimerTests.m */,
 				882659831A3D95EA0031D412 /* Supporting Files */,
+				88AA59471A4725E000C81DDA /* TimerServiceTest.m */,
 			);
 			path = TimerTests;
 			sourceTree = "<group>";
@@ -156,11 +177,19 @@
 			name = Dependencies;
 			sourceTree = "<group>";
 		};
+		8840D8781A4C7100001F3D52 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		88AA59251A3DA85200C81DDA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				88AA59321A45187300C81DDA /* AppDelegate.h */,
 				88AA59331A45187300C81DDA /* AppDelegate.m */,
+				8840D8781A4C7100001F3D52 /* Views */,
 				88AA59261A3DA85200C81DDA /* Controllers */,
 				88AA59271A3DA85200C81DDA /* Models */,
 				88AA59281A3DA85200C81DDA /* Services */,
@@ -172,7 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				88AA592F1A45186F00C81DDA /* ListViewController.h */,
-				88AA59301A45186F00C81DDA /* ListViewController.mm */,
+				88AA59301A45186F00C81DDA /* ListViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -180,8 +209,11 @@
 		88AA59271A3DA85200C81DDA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				88AA59491A4726DE00C81DDA /* Extensions */,
 				88AA592C1A3DAA3600C81DDA /* TimerDTO.h */,
 				88AA592D1A3DAA3600C81DDA /* TimerDTO.mm */,
+				88AA59421A45938500C81DDA /* Configuration.h */,
+				88AA59431A45938500C81DDA /* Configuration.mm */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -195,6 +227,15 @@
 				88AA593C1A45823500C81DDA /* Service.m */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		88AA59491A4726DE00C81DDA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				88AA594A1A4726F800C81DDA /* NSObject+Debug.h */,
+				88AA594B1A4726F800C81DDA /* NSObject+Debug.m */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		88D148D41A3D9F5700255E52 /* Products */ = {
@@ -221,6 +262,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				88AA59401A458D7800C81DDA /* PBXTargetDependency */,
 			);
 			name = Timer;
 			productName = Timer;
@@ -337,11 +379,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88AA59441A45938500C81DDA /* Configuration.mm in Sources */,
 				88AA593A1A451F7900C81DDA /* TimerService.mm in Sources */,
 				88AA59341A45187300C81DDA /* AppDelegate.m in Sources */,
 				8826596C1A3D95E90031D412 /* main.m in Sources */,
 				88AA592E1A3DAA3600C81DDA /* TimerDTO.mm in Sources */,
-				88AA59311A45186F00C81DDA /* ListViewController.mm in Sources */,
+				88AA594C1A4726F800C81DDA /* NSObject+Debug.m in Sources */,
+				88AA59311A45186F00C81DDA /* ListViewController.m in Sources */,
 				88AA593D1A45823500C81DDA /* Service.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,6 +395,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				882659861A3D95EA0031D412 /* TimerTests.m in Sources */,
+				88AA594E1A47EBD200C81DDA /* TimerService.mm in Sources */,
+				88AA59481A4725E000C81DDA /* TimerServiceTest.m in Sources */,
+				88AA594F1A47EC2600C81DDA /* Configuration.mm in Sources */,
+				88AA594D1A47EBCB00C81DDA /* Service.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +409,11 @@
 			isa = PBXTargetDependency;
 			target = 882659651A3D95E90031D412 /* Timer */;
 			targetProxy = 882659801A3D95EA0031D412 /* PBXContainerItemProxy */;
+		};
+		88AA59401A458D7800C81DDA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TimerLib;
+			targetProxy = 88AA593F1A458D7800C81DDA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -8,8 +8,11 @@
 
 #import "ListViewController.h"
 
+#import "TimerService.h"
+
 @interface ListViewController ()
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *timers;
 @end
 
 @interface ListViewController (TableView) <UITableViewDataSource, UITableViewDelegate>
@@ -24,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self setTimers:[[[TimerService sharedService] allTimers] mutableCopy]];
 }
 
 @end
@@ -33,7 +37,7 @@
 @implementation ListViewController (TableView)
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return [[self timers] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
