@@ -19,4 +19,8 @@
     return self;
 }
 
+- (BOOL)didFinish {
+    return [[NSDate date] compare:self.fireDatetime] != NSOrderedAscending;
+}
+
 @end

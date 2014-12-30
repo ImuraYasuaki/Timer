@@ -8,6 +8,10 @@
 
 #import "ListViewController.h"
 
+#import "RegisterViewController.h"
+
+#import "TimerListCell.h"
+
 #import "TimerService.h"
 
 @interface ListViewController ()
@@ -24,8 +28,8 @@
 
 @implementation ListViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 
     [self setTimers:[[[TimerService sharedService] allTimers] mutableCopy]];
 }
@@ -41,7 +45,20 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    static NSString *CellIdentifier = @"TimeerListCell";
+    TimerListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (!cell) {
+        cell = [[TimerListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    TimerDTO *timer = [self.timers objectAtIndex:indexPath.row];
+    [cell setTimer:timer];
+
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    TimerDTO *timer = [self.timers objectAtIndex:indexPath.row];
+    return [TimerListCell cellHeightWithTimer:timer];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -56,7 +73,9 @@
 @implementation ListViewController (Action)
 
 - (void)didTapAddButton:(id)sender {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    RegisterViewController *viewController = [RegisterViewController viewController];
+    [viewController setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 @end

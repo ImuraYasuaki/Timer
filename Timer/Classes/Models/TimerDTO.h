@@ -15,4 +15,6 @@
 
 - (instancetype)initWithFirDatetime:(NSDate *)datetime message:(NSString *)message;
 
+- (BOOL)didFinish;
+
 @end

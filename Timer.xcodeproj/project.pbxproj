@@ -12,6 +12,11 @@
 		882659771A3D95E90031D412 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 882659761A3D95E90031D412 /* Images.xcassets */; };
 		8826597A1A3D95E90031D412 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882659781A3D95E90031D412 /* LaunchScreen.xib */; };
 		882659861A3D95EA0031D412 /* TimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 882659851A3D95EA0031D412 /* TimerTests.m */; };
+		8840D8801A4C73C2001F3D52 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8840D87F1A4C73C2001F3D52 /* RegisterViewController.m */; };
+		8840D8821A4C7612001F3D52 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8840D8811A4C7612001F3D52 /* RegisterViewController.xib */; };
+		8840D8861A4CF732001F3D52 /* RegistrationLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 8840D8851A4CF732001F3D52 /* RegistrationLogic.m */; };
+		8840D8891A4D8B6C001F3D52 /* ToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8840D8881A4D8B6C001F3D52 /* ToastView.m */; };
+		8840D8901A515AC0001F3D52 /* TimerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8840D88F1A515AC0001F3D52 /* TimerListCell.m */; };
 		88AA592E1A3DAA3600C81DDA /* TimerDTO.mm in Sources */ = {isa = PBXBuildFile; fileRef = 88AA592D1A3DAA3600C81DDA /* TimerDTO.mm */; };
 		88AA59311A45186F00C81DDA /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AA59301A45186F00C81DDA /* ListViewController.m */; };
 		88AA59341A45187300C81DDA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AA59331A45187300C81DDA /* AppDelegate.m */; };
@@ -74,6 +79,15 @@
 		8826597F1A3D95EA0031D412 /* TimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		882659841A3D95EA0031D412 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		882659851A3D95EA0031D412 /* TimerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerTests.m; sourceTree = "<group>"; };
+		8840D87E1A4C73C2001F3D52 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		8840D87F1A4C73C2001F3D52 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		8840D8811A4C7612001F3D52 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		8840D8841A4CF732001F3D52 /* RegistrationLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationLogic.h; sourceTree = "<group>"; };
+		8840D8851A4CF732001F3D52 /* RegistrationLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationLogic.m; sourceTree = "<group>"; };
+		8840D8871A4D8B6C001F3D52 /* ToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToastView.h; sourceTree = "<group>"; };
+		8840D8881A4D8B6C001F3D52 /* ToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToastView.m; sourceTree = "<group>"; };
+		8840D88E1A515AC0001F3D52 /* TimerListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerListCell.h; sourceTree = "<group>"; };
+		8840D88F1A515AC0001F3D52 /* TimerListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerListCell.m; sourceTree = "<group>"; };
 		88AA592C1A3DAA3600C81DDA /* TimerDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerDTO.h; sourceTree = "<group>"; };
 		88AA592D1A3DAA3600C81DDA /* TimerDTO.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TimerDTO.mm; sourceTree = "<group>"; };
 		88AA592F1A45186F00C81DDA /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
@@ -180,8 +194,29 @@
 		8840D8781A4C7100001F3D52 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8840D88D1A515AC0001F3D52 /* Cells */,
+				8840D8871A4D8B6C001F3D52 /* ToastView.h */,
+				8840D8881A4D8B6C001F3D52 /* ToastView.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8840D8831A4CF722001F3D52 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				8840D8841A4CF732001F3D52 /* RegistrationLogic.h */,
+				8840D8851A4CF732001F3D52 /* RegistrationLogic.m */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		8840D88D1A515AC0001F3D52 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8840D88E1A515AC0001F3D52 /* TimerListCell.h */,
+				8840D88F1A515AC0001F3D52 /* TimerListCell.m */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		88AA59251A3DA85200C81DDA /* Classes */ = {
@@ -202,6 +237,9 @@
 			children = (
 				88AA592F1A45186F00C81DDA /* ListViewController.h */,
 				88AA59301A45186F00C81DDA /* ListViewController.m */,
+				8840D87E1A4C73C2001F3D52 /* RegisterViewController.h */,
+				8840D87F1A4C73C2001F3D52 /* RegisterViewController.m */,
+				8840D8811A4C7612001F3D52 /* RegisterViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -209,6 +247,7 @@
 		88AA59271A3DA85200C81DDA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8840D8831A4CF722001F3D52 /* Logic */,
 				88AA59491A4726DE00C81DDA /* Extensions */,
 				88AA592C1A3DAA3600C81DDA /* TimerDTO.h */,
 				88AA592D1A3DAA3600C81DDA /* TimerDTO.mm */,
@@ -362,6 +401,7 @@
 				882659751A3D95E90031D412 /* Main.storyboard in Resources */,
 				8826597A1A3D95E90031D412 /* LaunchScreen.xib in Resources */,
 				882659771A3D95E90031D412 /* Images.xcassets in Resources */,
+				8840D8821A4C7612001F3D52 /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,7 +422,11 @@
 				88AA59441A45938500C81DDA /* Configuration.mm in Sources */,
 				88AA593A1A451F7900C81DDA /* TimerService.mm in Sources */,
 				88AA59341A45187300C81DDA /* AppDelegate.m in Sources */,
+				8840D8901A515AC0001F3D52 /* TimerListCell.m in Sources */,
+				8840D8861A4CF732001F3D52 /* RegistrationLogic.m in Sources */,
+				8840D8891A4D8B6C001F3D52 /* ToastView.m in Sources */,
 				8826596C1A3D95E90031D412 /* main.m in Sources */,
+				8840D8801A4C73C2001F3D52 /* RegisterViewController.m in Sources */,
 				88AA592E1A3DAA3600C81DDA /* TimerDTO.mm in Sources */,
 				88AA594C1A4726F800C81DDA /* NSObject+Debug.m in Sources */,
 				88AA59311A45186F00C81DDA /* ListViewController.m in Sources */,
