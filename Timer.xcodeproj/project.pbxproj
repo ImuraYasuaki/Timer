@@ -29,6 +29,7 @@
 		88AA594D1A47EBCB00C81DDA /* Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AA593C1A45823500C81DDA /* Service.m */; };
 		88AA594E1A47EBD200C81DDA /* TimerService.mm in Sources */ = {isa = PBXBuildFile; fileRef = 88AA59391A451F7900C81DDA /* TimerService.mm */; };
 		88AA594F1A47EC2600C81DDA /* Configuration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 88AA59431A45938500C81DDA /* Configuration.mm */; };
+		88EFA2851A53D77300174500 /* FunctionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EFA2841A53D77300174500 /* FunctionsView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,8 @@
 		88AA594A1A4726F800C81DDA /* NSObject+Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Debug.h"; sourceTree = "<group>"; };
 		88AA594B1A4726F800C81DDA /* NSObject+Debug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Debug.m"; sourceTree = "<group>"; };
 		88D148D31A3D9F5700255E52 /* Timer_Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Timer_Core.xcodeproj; path = ../../Timer_Core/Timer_Core.xcodeproj; sourceTree = "<group>"; };
+		88EFA2831A53D77300174500 /* FunctionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionsView.h; sourceTree = "<group>"; };
+		88EFA2841A53D77300174500 /* FunctionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +200,8 @@
 				8840D88D1A515AC0001F3D52 /* Cells */,
 				8840D8871A4D8B6C001F3D52 /* ToastView.h */,
 				8840D8881A4D8B6C001F3D52 /* ToastView.m */,
+				88EFA2831A53D77300174500 /* FunctionsView.h */,
+				88EFA2841A53D77300174500 /* FunctionsView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -426,6 +431,7 @@
 				8840D8861A4CF732001F3D52 /* RegistrationLogic.m in Sources */,
 				8840D8891A4D8B6C001F3D52 /* ToastView.m in Sources */,
 				8826596C1A3D95E90031D412 /* main.m in Sources */,
+				88EFA2851A53D77300174500 /* FunctionsView.m in Sources */,
 				8840D8801A4C73C2001F3D52 /* RegisterViewController.m in Sources */,
 				88AA592E1A3DAA3600C81DDA /* TimerDTO.mm in Sources */,
 				88AA594C1A4726F800C81DDA /* NSObject+Debug.m in Sources */,

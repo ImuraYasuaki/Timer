@@ -13,6 +13,7 @@
 @interface TimerService : Service
 
 - (NSArray *)allTimers;
+- (NSArray *)allTimersShouldPostponePastTimers:(BOOL)shouldPostponePastTimers;
 - (BOOL)saveTimer:(TimerDTO *)timer;
 - (BOOL)removeTimer:(TimerDTO *)timer;
 

@@ -20,6 +20,10 @@
 @implementation TimerService
 
 - (NSArray *)allTimers {
+    return [self allTimersShouldPostponePastTimers:NO];
+}
+
+- (NSArray *)allTimersShouldPostponePastTimers:(BOOL)shouldPostponePastTimers {
     NSString *path = [[Configuration defaultConfiguration] timerFilePath];
     std::list<core::Timer> timers;
     TimerManager::getTimer([path UTF8String], timers);
@@ -28,7 +32,23 @@
     for (std::list<core::Timer>::iterator iterator = timers.begin(); iterator != timers.end(); ++iterator) {
         [results addObject:[self.class timerDTOFromTimer:(*iterator)]];
     }
-    return [NSArray arrayWithArray:results];
+    if (!shouldPostponePastTimers) {
+        return [NSArray arrayWithArray:results];
+    }
+    NSMutableArray *pastTimers = [NSMutableArray array];
+    NSMutableArray *waitingTimers = [NSMutableArray array];
+    for (TimerDTO *timer in results) {
+        if ([timer didFinish]) {
+            [pastTimers addObject:timer];
+        } else {
+            [waitingTimers addObject:timer];
+        }
+    }
+    NSMutableArray *sortedResults = [NSMutableArray array];
+    [sortedResults addObjectsFromArray:waitingTimers];
+    [sortedResults addObjectsFromArray:pastTimers];
+
+    return [NSArray arrayWithArray:sortedResults];
 }
 
 - (BOOL)saveTimer:(TimerDTO *)timerDTO {
@@ -44,11 +64,9 @@
     NSString *path = [[Configuration defaultConfiguration] timerFilePath];
     core::Timer timer;
     [self.class timer:timer fromTimerDTO:timerDTO];
+    TimerManager::deleteTimer([path UTF8String], timer);
 
-    /*! @abstract need to implementation */
-    NSLog(@"path: %@, timer.fireDatetimer: %ld, timer.message: \"%s\"", path, timer.getFireDatetime(), timer.getMessage().c_str());
-
-    return NO;
+    return YES;
 }
 
 @end
