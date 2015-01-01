@@ -29,6 +29,10 @@
 		88AA594D1A47EBCB00C81DDA /* Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AA593C1A45823500C81DDA /* Service.m */; };
 		88AA594E1A47EBD200C81DDA /* TimerService.mm in Sources */ = {isa = PBXBuildFile; fileRef = 88AA59391A451F7900C81DDA /* TimerService.mm */; };
 		88AA594F1A47EC2600C81DDA /* Configuration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 88AA59431A45938500C81DDA /* Configuration.mm */; };
+		88E207321A543B4D005D1C5D /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E207311A543B4D005D1C5D /* EditViewController.m */; };
+		88E207361A543C58005D1C5D /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88E207351A543C58005D1C5D /* EditViewController.xib */; };
+		88E207391A544009005D1C5D /* EditSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E207381A544009005D1C5D /* EditSetViewController.m */; };
+		88E2073D1A5449C2005D1C5D /* UIViewController+Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E2073C1A5449C2005D1C5D /* UIViewController+Defaults.m */; };
 		88EFA2851A53D77300174500 /* FunctionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EFA2841A53D77300174500 /* FunctionsView.m */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +109,14 @@
 		88AA594A1A4726F800C81DDA /* NSObject+Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Debug.h"; sourceTree = "<group>"; };
 		88AA594B1A4726F800C81DDA /* NSObject+Debug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Debug.m"; sourceTree = "<group>"; };
 		88D148D31A3D9F5700255E52 /* Timer_Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Timer_Core.xcodeproj; path = ../../Timer_Core/Timer_Core.xcodeproj; sourceTree = "<group>"; };
+		88E207301A543B4D005D1C5D /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		88E207311A543B4D005D1C5D /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
+		88E207351A543C58005D1C5D /* EditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
+		88E207371A544009005D1C5D /* EditSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditSetViewController.h; sourceTree = "<group>"; };
+		88E207381A544009005D1C5D /* EditSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditSetViewController.m; sourceTree = "<group>"; };
+		88E2073B1A5449C2005D1C5D /* UIViewController+Defaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Defaults.h"; sourceTree = "<group>"; };
+		88E2073C1A5449C2005D1C5D /* UIViewController+Defaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Defaults.m"; sourceTree = "<group>"; };
+		88E2073E1A544AA8005D1C5D /* Timer-iOS.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Timer-iOS.pch"; sourceTree = "<group>"; };
 		88EFA2831A53D77300174500 /* FunctionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionsView.h; sourceTree = "<group>"; };
 		88EFA2841A53D77300174500 /* FunctionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,6 +176,7 @@
 			children = (
 				8826596A1A3D95E90031D412 /* Info.plist */,
 				8826596B1A3D95E90031D412 /* main.m */,
+				88E2073E1A544AA8005D1C5D /* Timer-iOS.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -240,11 +253,17 @@
 		88AA59261A3DA85200C81DDA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				88E2073A1A5449B2005D1C5D /* Extensions */,
 				88AA592F1A45186F00C81DDA /* ListViewController.h */,
 				88AA59301A45186F00C81DDA /* ListViewController.m */,
 				8840D87E1A4C73C2001F3D52 /* RegisterViewController.h */,
 				8840D87F1A4C73C2001F3D52 /* RegisterViewController.m */,
 				8840D8811A4C7612001F3D52 /* RegisterViewController.xib */,
+				88E207301A543B4D005D1C5D /* EditViewController.h */,
+				88E207311A543B4D005D1C5D /* EditViewController.m */,
+				88E207351A543C58005D1C5D /* EditViewController.xib */,
+				88E207371A544009005D1C5D /* EditSetViewController.h */,
+				88E207381A544009005D1C5D /* EditSetViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -290,6 +309,15 @@
 				88D148DE1A3D9F5700255E52 /* libTimerLib.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		88E2073A1A5449B2005D1C5D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				88E2073B1A5449C2005D1C5D /* UIViewController+Defaults.h */,
+				88E2073C1A5449C2005D1C5D /* UIViewController+Defaults.m */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,6 +433,7 @@
 			files = (
 				882659751A3D95E90031D412 /* Main.storyboard in Resources */,
 				8826597A1A3D95E90031D412 /* LaunchScreen.xib in Resources */,
+				88E207361A543C58005D1C5D /* EditViewController.xib in Resources */,
 				882659771A3D95E90031D412 /* Images.xcassets in Resources */,
 				8840D8821A4C7612001F3D52 /* RegisterViewController.xib in Resources */,
 			);
@@ -430,10 +459,13 @@
 				8840D8901A515AC0001F3D52 /* TimerListCell.m in Sources */,
 				8840D8861A4CF732001F3D52 /* RegistrationLogic.m in Sources */,
 				8840D8891A4D8B6C001F3D52 /* ToastView.m in Sources */,
+				88E2073D1A5449C2005D1C5D /* UIViewController+Defaults.m in Sources */,
 				8826596C1A3D95E90031D412 /* main.m in Sources */,
 				88EFA2851A53D77300174500 /* FunctionsView.m in Sources */,
+				88E207391A544009005D1C5D /* EditSetViewController.m in Sources */,
 				8840D8801A4C73C2001F3D52 /* RegisterViewController.m in Sources */,
 				88AA592E1A3DAA3600C81DDA /* TimerDTO.mm in Sources */,
+				88E207321A543B4D005D1C5D /* EditViewController.m in Sources */,
 				88AA594C1A4726F800C81DDA /* NSObject+Debug.m in Sources */,
 				88AA59311A45186F00C81DDA /* ListViewController.m in Sources */,
 				88AA593D1A45823500C81DDA /* Service.m in Sources */,
@@ -567,6 +599,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "${SRCROOT}/Timer/Timer-iOS.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -584,6 +618,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "${SRCROOT}/Timer/Timer-iOS.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,

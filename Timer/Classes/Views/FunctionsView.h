@@ -6,8 +6,6 @@
 //  Copyright (c) 2014年 yasu. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 typedef NS_ENUM(NSUInteger, FunctionsViewPosition) {
     FunctionsViewPositionDefault = 0,
     FunctionsViewPositionRight  = 1 << 0,
@@ -26,6 +24,8 @@ typedef void (^FunctionsViewSelectedBlock)(FunctionsView *functionsView, UIButto
 typedef void (^FunctionsViewVisualizeBlock)(FunctionsView *functionsView, UIView *view, UIButton *button, NSString *title, NSUInteger index);
 
 @interface FunctionsView : UIView
+
+@property (assign) CGFloat visibleAlpha;
 
 + (FunctionsView *)showFunctionsViewFrom:(FunctionsViewPosition)position titles:(NSArray *)titles selected:(FunctionsViewSelectedBlock)selectedBlock;
 + (FunctionsView *)showFunctionsViewFrom:(FunctionsViewPosition)position titles:(NSArray *)titles visualize:(FunctionsViewVisualizeBlock)visualizeBlock selected:(FunctionsViewSelectedBlock)selectedBlock;

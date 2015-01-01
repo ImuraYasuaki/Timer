@@ -1,0 +1,14 @@
+//
+//  Timer-iOS.pch
+//  Timer
+//
+//  Created by myuon on 2015/01/01.
+//  Copyright (c) 2015年 yasu. All rights reserved.
+//
+
+#ifndef Timer_Timer_iOS_pch
+#define Timer_Timer_iOS_pch
+
+#import "UIViewController+Defaults.h"
+
+#endif

@@ -44,19 +44,13 @@
     return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] firstObject];
 }
 
-+ (instancetype)viewControllerWithTimer:(TimerDTO *)timer {
-    RegisterViewController *viewController = [self viewController];
-    [viewController.datePicker setDate:timer.fireDatetime];
-    [viewController.alarmMessageTextField setText:timer.message];
-
-    return viewController;
-}
-
 - (TimerDTO *)timerDTO {
     return [[TimerDTO alloc] initWithFirDatetime:[self.datePicker date] message:self.alarmMessageTextField.text];
 }
 
 @end
+
+////////////////////////////////////////////////////////////////////////////////
 
 @implementation RegisterViewController (Action)
 
@@ -77,6 +71,8 @@
 }
 
 @end
+
+////////////////////////////////////////////////////////////////////////////////
 
 @implementation RegisterViewController (TextField)
 

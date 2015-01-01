@@ -32,6 +32,7 @@
     self = [super init];
     if (self) {
         [self setBackgroundColor:[UIColor clearColor]];
+        [self setVisibleAlpha:0.8f];
     }
     return self;
 }
@@ -122,7 +123,7 @@
     functionsViewFrame.origin = self.shownPosition;
     [UIView animateWithDuration:0.8f animations:^{
         [self setFrame:functionsViewFrame];
-        [self setAlpha:0.8f];
+        [self setAlpha:self.visibleAlpha];
     } completion:^(BOOL finished) {
         // nothing to do ...
     }];

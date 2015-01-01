@@ -9,6 +9,7 @@
 #import "ListViewController.h"
 
 #import "RegisterViewController.h"
+#import "EditSetViewController.h"
 #import "FunctionsView.h"
 #import "TimerListCell.h"
 
@@ -42,6 +43,12 @@
     [super viewWillAppear:animated];
 
     [self setTimers:[[[TimerService sharedService] allTimersShouldPostponePastTimers:YES] mutableCopy]];
+
+    if (self.functionsView) {
+        [UIView animateWithDuration:[self.class defaultAnimationDuration] animations:^{
+            [self.functionsView setAlpha:0.8f];
+        }];
+    }
 }
 
 - (void)showEditFunctions {
@@ -63,7 +70,12 @@
     } selected:^(FunctionsView *functionsView, UIButton *sender, NSUInteger index) {
         if ([sender.titleLabel.text isEqualToString:@"edit"]) {
             [self didTapEditButton:sender];
-        } else if ([sender.titleLabel.text isEqualToString:@"delete"]) {
+            [UIView animateWithDuration:0.4f animations:^{
+                [functionsView setAlpha:0.0f];
+            }];
+            return;
+        }
+        if ([sender.titleLabel.text isEqualToString:@"delete"]) {
             [self didTapDeleteButton:sender];
         } else if ([sender.titleLabel.text isEqualToString:@"disable"]) {
             [self didTapDisableButton:sender];
@@ -160,17 +172,15 @@
 }
 
 - (IBAction)didTapEditButton:(id)sender {
-    NSMutableArray *childViewControllers = [NSMutableArray array];
+    NSMutableArray *selectedTimers = [NSMutableArray array];
     NSArray *selectedIndexPaths = [self selectedIndexPaths];
     for (NSIndexPath *indexPath in selectedIndexPaths) {
         TimerDTO *timer = [self.timers objectAtIndex:indexPath.row];
 
-        RegisterViewController *viewController = [RegisterViewController viewControllerWithTimer:timer];
-        [childViewControllers addObject:viewController];
+        [selectedTimers addObject:timer];
     }
-    UIPageViewController *pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
-    [pageViewController setViewControllers:childViewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
-    [self presentViewController:pageViewController animated:YES completion:nil];
+    EditSetViewController *viewController = [EditSetViewController viewControllerWithTimers:selectedTimers];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 @end

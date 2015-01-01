@@ -6,7 +6,6 @@
 //  Copyright (c) 2014年 yasu. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
 #import "TimerService.h"

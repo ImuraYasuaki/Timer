@@ -6,8 +6,6 @@
 //  Copyright (c) 2014年 yasu. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @class TimerDTO;
 
 @interface TimerListCell : UITableViewCell
