@@ -45,7 +45,9 @@
         }
     }
     NSMutableArray *sortedResults = [NSMutableArray array];
-    [sortedResults addObjectsFromArray:waitingTimers];
+    [sortedResults addObjectsFromArray:[waitingTimers sortedArrayUsingComparator:^NSComparisonResult(TimerDTO *obj1, TimerDTO *obj2) {
+        return [obj1.fireDatetime compare:obj2.fireDatetime];
+    }]];
     [sortedResults addObjectsFromArray:pastTimers];
 
     return [NSArray arrayWithArray:sortedResults];
@@ -55,8 +57,12 @@
     NSString *path = [[Configuration defaultConfiguration] timerFilePath];
     core::Timer timer;
     [self.class timer:timer fromTimerDTO:timerDTO];
-    TimerManager::registerTimer([path UTF8String], timer);
 
+    if (timerDTO.timerID == core::Timer::UnregisteredTimerID) {
+        TimerManager::registerTimer([path UTF8String], timer);
+    } else {
+        TimerManager::updateTimer([path UTF8String], timer);
+    }
     return YES;
 }
 
@@ -84,12 +90,14 @@
 
 - (void)saveTimer:(TimerDTO *)timer completion:(SaveCompletoinBlock)completion {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self saveTimer:timer];
         completion(nil, nil);
     });
 }
 
 - (void)removeTimer:(TimerDTO *)timer completion:(RemoveCompletoinBlock)completion {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self removeTimer:timer];
         completion(nil, nil);
     });
 }
@@ -109,6 +117,7 @@
 + (void)timer:(core::Timer &)result fromTimerDTO:(TimerDTO *)timer {
     result.setFireDatetime([timer.fireDatetime timeIntervalSince1970]);
     result.setMessage([timer.message UTF8String]);
+    result.setTimerId(timer.timerID);
 }
 @end
 

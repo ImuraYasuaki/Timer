@@ -19,4 +19,6 @@
 
 - (BOOL)didFinish;
 
+- (BOOL)isEqualToTimer:(TimerDTO *)timer;
+
 @end

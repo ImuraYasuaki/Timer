@@ -8,6 +8,8 @@
 
 #import "EditViewController.h"
 
+#import "ToastView.h"
+
 #import "TimerService.h"
 
 #import "TimerDTO.h"
@@ -19,7 +21,8 @@
 @end
 
 @interface EditViewController ()
-
+@property (nonatomic, strong) TimerDTO *timerDTO;
+- (TimerDTO *)updatedTimer;
 @end
 
 @implementation EditViewController
@@ -28,12 +31,19 @@
     EditViewController *viewController = [self viewController];
     [viewController.datePicker setDate:timer.fireDatetime];
     [viewController.alarmMessageTextField setText:timer.message];
+    [viewController setTimerDTO:timer];
 
     return viewController;
 }
 
 - (void)didTapDoneButton:(id)sender {
-    
+    BOOL succeeded = [[TimerService sharedService] saveTimer:self.updatedTimer];
+    NSString *message = succeeded ? @"Updated !" : @"Could not update!";
+    [ToastView showToastViewWithMessage:message duration:ToastViewDurationLong];
+}
+
+- (TimerDTO *)updatedTimer {
+    return [[TimerDTO alloc] initWithTimerID:[self.timerDTO timerID] fireDatetime:[self.datePicker date] message:[self.alarmMessageTextField text]];
 }
 
 @end

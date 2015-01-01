@@ -19,6 +19,7 @@
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) FunctionsView *functionsView;
 @property (nonatomic, strong) NSMutableArray *timers;
+- (BOOL)updateTimers;
 - (void)showEditFunctions;
 - (void)hideEditFunctions;
 @end
@@ -39,16 +40,43 @@
 
 @implementation ListViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    [self setTimers:[NSMutableArray array]];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    [self setTimers:[[[TimerService sharedService] allTimersShouldPostponePastTimers:YES] mutableCopy]];
-
+    BOOL updated = [self updateTimers];
+    if (updated) {
+        [self.tableView reloadData];
+        [self hideEditFunctions];
+    }
     if (self.functionsView) {
         [UIView animateWithDuration:[self.class defaultAnimationDuration] animations:^{
             [self.functionsView setAlpha:0.8f];
         }];
     }
+}
+
+- (BOOL)updateTimers {
+    NSArray *timers = [[TimerService sharedService] allTimersShouldPostponePastTimers:YES];
+    __block BOOL updated = timers.count != [self.timers count];
+    if (!updated) {
+        [timers enumerateObjectsUsingBlock:^(TimerDTO *obj, NSUInteger idx, BOOL *stop) {
+            BOOL isSame = [obj isEqualToTimer:[self.timers objectAtIndex:idx]];
+            if (!isSame) {
+                updated = YES;
+                (*stop) = YES;
+            }
+        }];
+    }
+    if (updated) {
+        [[self timers] setArray:timers];
+    }
+    return updated;
 }
 
 - (void)showEditFunctions {

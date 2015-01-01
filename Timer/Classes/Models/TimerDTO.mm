@@ -30,4 +30,8 @@
     return [[NSDate date] compare:self.fireDatetime] != NSOrderedAscending;
 }
 
+- (BOOL)isEqualToTimer:(TimerDTO *)timer {
+    return (self.timerID == timer.timerID && [self.fireDatetime isEqualToDate:timer.fireDatetime] && [self.message isEqualToString:timer.message]);
+}
+
 @end
