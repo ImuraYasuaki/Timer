@@ -47,15 +47,16 @@
 }
 
 + (id)viewControllerWithTimers:(NSArray *)timers {
-    UINavigationController *navigationController = [EditSetViewController viewController];
     NSMutableArray *viewControllers = [NSMutableArray array];
     for (TimerDTO *timer in timers) {
         EditViewController *viewController = [EditViewController viewControllerWithTimer:timer];
         [viewControllers addObject:viewController];
     }
+    UINavigationController *navigationController = [EditSetViewController viewController];
     EditSetViewController *setViewController = [[navigationController viewControllers] firstObject];
     [setViewController.pageViewController setViewControllers:@[[viewControllers firstObject]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     [setViewController setEditViewControllers:viewControllers];
+
     return navigationController;
 }
 
@@ -69,6 +70,8 @@
 
 @end
 
+////////////////////////////////////////////////////////////////////////////////
+
 @implementation EditSetViewController (Action)
 
 - (void)didTapRightBarButton:(id)sender {
@@ -77,6 +80,8 @@
 
 @end
 
+////////////////////////////////////////////////////////////////////////////////
+
 @implementation EditSetViewController (PageViewController)
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
@@ -84,7 +89,8 @@
     if ([self.editViewControllers count] <= index) {
         return nil;
     }
-    return [self.editViewControllers objectAtIndex:index];
+    UIViewController *nextViewController = [self.editViewControllers objectAtIndex:index];
+    return nextViewController;
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {

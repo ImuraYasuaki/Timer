@@ -102,7 +102,7 @@
 + (TimerDTO *)timerDTOFromTimer:(const core::Timer &)timer {
     NSDate *fireDate = [NSDate dateWithTimeIntervalSince1970:timer.getFireDatetime()];
     NSString *message = [NSString stringWithUTF8String:timer.getMessage().c_str()];
-    TimerDTO *DTO = [[TimerDTO alloc] initWithFirDatetime:fireDate message:message];
+    TimerDTO *DTO = [[TimerDTO alloc] initWithTimerID:timer.getTimerId() fireDatetime:fireDate message:message];
     return DTO;
 }
 

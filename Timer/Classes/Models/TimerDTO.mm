@@ -8,11 +8,18 @@
 
 #import "TimerDTO.h"
 
+#import <TimerLib/Timer.h>
+
 @implementation TimerDTO
 
-- (instancetype)initWithFirDatetime:(NSDate *)datetime message:(NSString *)message {
+- (instancetype)initWithFireDatetime:(NSDate *)datetime message:(NSString *)message {
+    return [self initWithTimerID:core::Timer::UnregisteredTimerID fireDatetime:datetime message:message];
+}
+
+- (instancetype)initWithTimerID:(NSUInteger)timerID fireDatetime:(NSDate *)datetime message:(NSString *)message {
     self = [super init];
     if (self) {
+        _timerID = timerID;
         _fireDatetime = datetime;
         _message = message;
     }

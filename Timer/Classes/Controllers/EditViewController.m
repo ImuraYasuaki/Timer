@@ -8,6 +8,8 @@
 
 #import "EditViewController.h"
 
+#import "TimerService.h"
+
 #import "TimerDTO.h"
 
 @interface EditViewController (Import)

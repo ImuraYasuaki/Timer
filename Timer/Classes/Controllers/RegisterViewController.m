@@ -45,7 +45,7 @@
 }
 
 - (TimerDTO *)timerDTO {
-    return [[TimerDTO alloc] initWithFirDatetime:[self.datePicker date] message:self.alarmMessageTextField.text];
+    return [[TimerDTO alloc] initWithFireDatetime:[self.datePicker date] message:self.alarmMessageTextField.text];
 }
 
 @end

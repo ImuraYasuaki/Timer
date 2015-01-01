@@ -10,10 +10,12 @@
 
 @interface TimerDTO : NSObject
 
+@property (readonly) NSUInteger timerID;
 @property (nonatomic, readonly) NSDate *fireDatetime;
 @property (nonatomic, copy) NSString *message;
 
-- (instancetype)initWithFirDatetime:(NSDate *)datetime message:(NSString *)message;
+- (instancetype)initWithFireDatetime:(NSDate *)datetime message:(NSString *)message;
+- (instancetype)initWithTimerID:(NSUInteger)timerID fireDatetime:(NSDate *)datetime message:(NSString *)message;
 
 - (BOOL)didFinish;
 

@@ -87,7 +87,7 @@
                 <outlet property="alarmMessageTextField" destination="1oT-GJ-W5H" id="7ch-p7-D9p"/>
                 <outlet property="datePicker" destination="hKS-vZ-jwl" id="FJh-Iv-AEc"/>
             </connections>
-            <point key="canvasLocation" x="394" y="345"/>
+            <point key="canvasLocation" x="341" y="280"/>
         </viewController>
     </objects>
 </document>
