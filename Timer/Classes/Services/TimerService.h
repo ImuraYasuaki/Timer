@@ -16,6 +16,9 @@
 - (NSArray *)allTimersShouldPostponePastTimers:(BOOL)shouldPostponePastTimers;
 - (BOOL)saveTimer:(TimerDTO *)timer;
 - (BOOL)removeTimer:(TimerDTO *)timer;
+- (void)setTimer:(TimerDTO *)timer enabled:(BOOL)enabled;
+
+- (BOOL)isEnabledWithTimer:(TimerDTO *)timer;
 
 @end
 

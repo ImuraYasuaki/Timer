@@ -12,6 +12,8 @@
 
 #import "Configuration.h"
 
+#import "LocalNotificationService.h"
+
 @interface TimerService (Convert)
 + (TimerDTO *)timerDTOFromTimer:(const core::Timer &)timer;
 + (void)timer:(core::Timer &)result fromTimerDTO:(TimerDTO *)timer;
@@ -75,6 +77,31 @@
     return YES;
 }
 
+- (void)setTimer:(TimerDTO *)timer enabled:(BOOL)enabled {
+    if (timer.didFinish) {
+        return;
+    }
+    BOOL scheduled = [self isEnabledWithTimer:timer];
+    if (enabled) {
+        if (scheduled) {
+            return;
+        }
+        [[LocalNotificationService sharedService] scheduleLocalNotificationWithMessage:timer.message atDate:timer.fireDatetime];
+    } else {
+        if (!scheduled) {
+            return;
+        }
+        [[LocalNotificationService sharedService] cancelScheduledLocalNotificationAtDate:timer.fireDatetime];
+    }
+}
+
+- (BOOL)isEnabledWithTimer:(TimerDTO *)timer {
+    if (timer.didFinish) {
+        return NO;
+    }
+    return [[LocalNotificationService sharedService] didScheduleLocalNotificationAtDate:timer.fireDatetime];
+}
+
 @end
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -117,7 +144,8 @@
 + (void)timer:(core::Timer &)result fromTimerDTO:(TimerDTO *)timer {
     result.setFireDatetime([timer.fireDatetime timeIntervalSince1970]);
     result.setMessage([timer.message UTF8String]);
-    result.setTimerId(timer.timerID);
+    result.setTimerId((unsigned int)timer.timerID);
 }
+
 @end
 

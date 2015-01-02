@@ -33,6 +33,8 @@
 
 @interface ListViewController (EditFunctions)
 - (NSArray *)selectedIndexPaths;
+- (void)setSelecteTimersEnabled:(BOOL)enabled;
+- (IBAction)didTapEnableButton:(id)sender;
 - (IBAction)didTapDisableButton:(id)sender;
 - (IBAction)didTapDeleteButton:(id)sender;
 - (IBAction)didTapEditButton:(id)sender;
@@ -84,7 +86,7 @@
     __block CGFloat backgroundColorGreen = 180.0f / 255.0f;
     __block CGFloat backgroundColorBlue = 80.0f / 255.0f;
     __block CGFloat backgroundColorAlpha = 0.8f;
-    [self setFunctionsView:[FunctionsView showFunctionsViewFrom:FunctionsViewPositionRight titles:@[@"edit", @"delete", @"disable", @"cancel"] visualize:^(FunctionsView *functionsView, UIView *view, UIButton *button, NSString *title, NSUInteger index) {
+    [self setFunctionsView:[FunctionsView showFunctionsViewFrom:FunctionsViewPositionRight titles:@[@"edit", @"delete", @"enable", @"disable", @"cancel"] visualize:^(FunctionsView *functionsView, UIView *view, UIButton *button, NSString *title, NSUInteger index) {
         BOOL cancelButton = [title isEqualToString:@"cancel"];
         UIColor *buttonTitleColor = cancelButton ? [UIColor redColor] : [UIColor blueColor];
         [button setTitleColor:buttonTitleColor forState:UIControlStateNormal];
@@ -107,14 +109,19 @@
             [self didTapDeleteButton:sender];
         } else if ([sender.titleLabel.text isEqualToString:@"disable"]) {
             [self didTapDisableButton:sender];
+        } else if ([sender.titleLabel.text isEqualToString:@"enable"]) {
+            [self didTapEnableButton:sender];
         }
-        [functionsView hide];
+        [self hideEditFunctions];
     }]];
 }
 
 - (void)hideEditFunctions {
     [self.functionsView hide];
     [self setFunctionsView:nil];
+    [[self.tableView indexPathsForSelectedRows] enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }];
 }
 
 @end
@@ -135,6 +142,7 @@
     }
     TimerDTO *timer = [self.timers objectAtIndex:indexPath.row];
     [cell setTimer:timer];
+    [cell setEnabledTimer:[[TimerService sharedService] isEnabledWithTimer:timer]];
 
     return cell;
 }
@@ -184,8 +192,21 @@
     }];
 }
 
+- (void)setSelecteTimersEnabled:(BOOL)enabled {
+    NSArray *selectedIndexPaths = [self selectedIndexPaths];
+    for (NSIndexPath *indexPath in [selectedIndexPaths reverseObjectEnumerator]) {
+        TimerDTO *timer = [self.timers objectAtIndex:indexPath.row];
+        [[TimerService sharedService] setTimer:timer enabled:enabled];
+    }
+    [self.tableView reloadRowsAtIndexPaths:selectedIndexPaths withRowAnimation:UITableViewRowAnimationFade];
+}
+
+- (IBAction)didTapEnableButton:(id)sender {
+    [self setSelecteTimersEnabled:YES];
+}
+
 - (IBAction)didTapDisableButton:(id)sender {
-    
+    [self setSelecteTimersEnabled:NO];
 }
 
 - (IBAction)didTapDeleteButton:(id)sender {

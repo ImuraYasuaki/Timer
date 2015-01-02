@@ -32,6 +32,14 @@
 
 @implementation TimerListCell
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [self setEnabledTimer:YES];
+    }
+    return self;
+}
+
 - (void)setTimer:(TimerDTO *)timer {
     _timer = timer;
 
@@ -43,9 +51,6 @@
         [self.messageLabel setTextColor:[UIColor lightGrayColor]];
         [self.messageLabel setText:timer.message];
     }
-    BOOL isPast = [timer didFinish];
-    [self.contentView setBackgroundColor:isPast ? [UIColor darkGrayColor] : [UIColor whiteColor]];
-
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"YYYY-MM-DD HH:mm"];
 
@@ -76,6 +81,12 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
 
+    BOOL isPast = [self.timer didFinish];
+    if (isPast) {
+        [self setBackgroundColor:[UIColor darkGrayColor]];
+    } else {
+        [self setBackgroundColor:[self isEnabledTimer] ? [UIColor whiteColor] : [UIColor blueColor]];
+    }
     CGRect baseFrame = [self.contentView bounds];
 
     CGFloat margin = [self.class defaultMargin];

@@ -11,6 +11,7 @@
 @interface TimerListCell : UITableViewCell
 
 @property (nonatomic, strong) TimerDTO *timer;
+@property (assign, getter=isEnabledTimer) BOOL enabledTimer;
 
 + (CGFloat)cellHeightWithTimer:(TimerDTO *)timer;
 
