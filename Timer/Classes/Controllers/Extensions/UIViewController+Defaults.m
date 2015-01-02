@@ -14,4 +14,8 @@
     return 0.8f;
 }
 
++ (CGFloat)defaultFastAnimationDuration {
+    return [self defaultAnimationDuration] * 0.5f;
+}
+
 @end

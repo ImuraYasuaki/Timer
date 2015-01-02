@@ -11,5 +11,6 @@
 @interface UIViewController (Defaults)
 
 + (CGFloat)defaultAnimationDuration;
++ (CGFloat)defaultFastAnimationDuration;
 
 @end
