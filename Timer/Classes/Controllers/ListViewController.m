@@ -19,6 +19,7 @@
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) FunctionsView *functionsView;
 @property (nonatomic, strong) NSMutableArray *timers;
+- (void)reloadViews;
 - (BOOL)updateTimers;
 - (void)showEditFunctions;
 - (void)hideEditFunctions;
@@ -28,6 +29,7 @@
 @end
 
 @interface ListViewController (Action)
+- (IBAction)didRefresh:(id)sender;
 - (IBAction)didTapAddButton:(id)sender;
 @end
 
@@ -45,12 +47,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(didRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:refreshControl];
+
     [self setTimers:[NSMutableArray array]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
+    [self reloadViews];
+}
+
+- (void)reloadViews {
     BOOL updated = [self updateTimers];
     if (updated) {
         [self.tableView reloadData];
@@ -172,6 +182,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 @implementation ListViewController (Action)
+
+- (IBAction)didRefresh:(UIRefreshControl *)sender {
+    [sender beginRefreshing];
+    [self reloadViews];
+    [sender endRefreshing];
+}
 
 - (void)didTapAddButton:(id)sender {
     [self hideEditFunctions];
