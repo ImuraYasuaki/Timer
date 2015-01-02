@@ -8,6 +8,7 @@
 
 #import "TimerService.h"
 
+#import "NSObject+PropertyList.h"
 #import "AppDelegate.h"
 
 #include <TimerLib/TimerManager.h>
@@ -88,7 +89,8 @@
         if (scheduled) {
             return;
         }
-        NSDictionary *userInfo = @{[AppDelegate firedTimerKey]: timer};
+        NSDictionary *timerPropertyList = [timer propertyListValue];
+        NSDictionary *userInfo = @{[AppDelegate firedTimerKey]: timerPropertyList};
         [[LocalNotificationService sharedService] scheduleLocalNotificationWithMessage:timer.message atDate:timer.fireDatetime userInfo:userInfo];
     } else {
         if (!scheduled) {
