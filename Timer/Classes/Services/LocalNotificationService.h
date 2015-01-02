@@ -14,6 +14,7 @@
 - (BOOL)didScheduleLocalNotificationAtDate:(NSDate *)date;
 - (void)scheduleLocalNotification:(UILocalNotification *)notification;
 - (void)scheduleLocalNotificationWithMessage:(NSString *)message atDate:(NSDate *)date;
+- (void)scheduleLocalNotificationWithMessage:(NSString *)message atDate:(NSDate *)date userInfo:(NSDictionary *)userInfo;
 - (void)cancelScheduledLocalNotificationAtDate:(NSDate *)date;
 
 @end

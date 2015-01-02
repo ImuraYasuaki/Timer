@@ -43,7 +43,21 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:[self.class didReceiveTimerNotificationName] object:self userInfo:notification.userInfo];
+}
+
+@end
+
+////////////////////////////////////////////////////////////////////////////////
+
+@implementation AppDelegate (LocalNotifications)
+
++ (NSString *)didReceiveTimerNotificationName {
+    return @"TimerAppDelegate#didReceiveTimerNotification";
+}
+
++ (NSString *)firedTimerKey {
+    return @"TimerAppDelegate#didReceiveTimerNoification-firedTimerKey";
 }
 
 @end

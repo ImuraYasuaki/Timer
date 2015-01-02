@@ -8,15 +8,23 @@
 
 #import "RegisterViewController.h"
 
+// Categories
+#import "NSObject+PropertyList.h"
+
+#import "AppDelegate.h"
+
 #import "TimerService.h"
-#import "ToastView.h"
+#import "LocalNotificationService.h"
 
 #import "RegistrationLogic.h"
+
+#import "ToastView.h"
 
 @interface RegisterViewController ()
 
 @property (nonatomic, weak) IBOutlet UIDatePicker *datePicker;
 @property (nonatomic, weak) IBOutlet UITextField *alarmMessageTextField;
+@property (nonatomic, strong) RegistrationCompletion completionBlock;
 
 - (TimerDTO *)timerDTO;
 
@@ -41,7 +49,19 @@
 }
 
 + (instancetype)viewController {
-    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] firstObject];
+    return [self viewControllerWithComletion:nil];
+}
+
++ (instancetype)viewControllerWithComletion:(BOOL (^)(TimerDTO *))completionBlock {
+    RegisterViewController *viewController = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] firstObject];;
+    [viewController setCompletionBlock:completionBlock];
+    return viewController;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+
+    [self setCompletionBlock:nil];
 }
 
 - (TimerDTO *)timerDTO {
@@ -64,9 +84,16 @@
     BOOL succeeded = [[TimerService sharedService] saveTimer:timer];
     if (succeeded) {
         [ToastView showToastViewWithMessage:@"succeeded." duration:ToastViewDurationLong];
-        [self dismissViewControllerAnimated:YES completion:nil];
+
+        NSDictionary *userInfo = @{[AppDelegate firedTimerKey]: timer.propertyListValue};
+        [[LocalNotificationService sharedService] scheduleLocalNotificationWithMessage:timer.message atDate:timer.fireDatetime userInfo:userInfo];
     } else {
+        timer = nil;
         [ToastView showToastViewWithMessage:@"you missed." duration:ToastViewDurationLong];
+    }
+    BOOL canFinish = self.completionBlock ? self.completionBlock(timer) : YES;
+    if (canFinish) {
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 

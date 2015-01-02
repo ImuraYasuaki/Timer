@@ -53,11 +53,16 @@
 }
 
 - (void)scheduleLocalNotificationWithMessage:(NSString *)message atDate:(NSDate *)date {
+    [self scheduleLocalNotificationWithMessage:message atDate:date userInfo:nil];
+}
+
+- (void)scheduleLocalNotificationWithMessage:(NSString *)message atDate:(NSDate *)date userInfo:(NSDictionary *)userInfo {
     UILocalNotification *notification = [[UILocalNotification alloc] init];
     [notification setAlertBody:message];
     [notification setFireDate:date];
     [notification setTimeZone:[NSTimeZone localTimeZone]];
     [notification setSoundName:UILocalNotificationDefaultSoundName];
+    [notification setUserInfo:userInfo];
     [[SystemService sharedService] OSMajorVersionBranching:[self.class UIUserNotificationAvailableVersion] laterBlock:^{
         [notification setCategory:[self.class categoryName]];
     }];

@@ -10,6 +10,9 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-
 @end
 
+@interface AppDelegate (LocalNotifications)
++ (NSString *)didReceiveTimerNotificationName;
++ (NSString *)firedTimerKey;
+@end

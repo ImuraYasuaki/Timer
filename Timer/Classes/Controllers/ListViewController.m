@@ -8,12 +8,19 @@
 
 #import "ListViewController.h"
 
+#import "NSObject+PropertyList.h"
+#import "AppDelegate.h"
+
 #import "RegisterViewController.h"
 #import "EditSetViewController.h"
+
 #import "FunctionsView.h"
 #import "TimerListCell.h"
 
+#import "TimerFormatter.h"
+
 #import "TimerService.h"
+#import "LocalNotificationService.h"
 
 @interface ListViewController ()
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
@@ -42,6 +49,10 @@
 - (IBAction)didTapEditButton:(id)sender;
 @end
 
+@interface ListViewController (Notification)
+- (void)didFiredTimer:(NSNotification *)notification;
+@end
+
 @implementation ListViewController
 
 - (void)viewDidLoad {
@@ -52,6 +63,12 @@
     [self.tableView addSubview:refreshControl];
 
     [self setTimers:[NSMutableArray array]];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFiredTimer:) name:[AppDelegate didReceiveTimerNotificationName] object:[UIApplication sharedApplication].delegate];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -246,6 +263,34 @@
     }
     EditSetViewController *viewController = [EditSetViewController viewControllerWithTimers:selectedTimers];
     [self presentViewController:viewController animated:YES completion:nil];
+}
+
+@end
+
+////////////////////////////////////////////////////////////////////////////////
+
+#import "SystemService.h"
+
+@implementation ListViewController (Notification)
+
+- (void)didFiredTimer:(NSNotification *)notification {
+    [self updateTimers];
+
+    NSDictionary *firedTimerPropertyList = [[notification userInfo] objectForKey:[AppDelegate firedTimerKey]];
+    if (!firedTimerPropertyList) {
+        return;
+    }
+    TimerDTO *firedTimer = [NSObject instanceFromPropertyList:firedTimerPropertyList];
+    if (!firedTimer) {
+        return;
+    }
+    NSString *title = [TimerFormatter timerDateFormatWithDate:firedTimer.fireDatetime];
+    NSString *message = firedTimer.message;
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        [alertController dismissViewControllerAnimated:YES completion:nil];
+    }]];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

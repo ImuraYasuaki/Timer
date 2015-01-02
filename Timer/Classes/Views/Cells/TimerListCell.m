@@ -9,6 +9,7 @@
 #import "TimerListCell.h"
 
 #import "TimerDTO.h"
+#import "TimerFormatter.h"
 
 @interface TimerListCell ()
 
@@ -51,10 +52,7 @@
         [self.messageLabel setTextColor:[UIColor lightGrayColor]];
         [self.messageLabel setText:timer.message];
     }
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"YYYY-MM-DD HH:mm"];
-
-    NSString *fireDatetimeText = [formatter stringFromDate:timer.fireDatetime];
+    NSString *fireDatetimeText = [TimerFormatter timerDateFormatWithDate:timer.fireDatetime];
     [self.fireDatetimeLabel setText:fireDatetimeText];
 
     [self setNeedsLayout];
