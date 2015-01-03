@@ -21,6 +21,7 @@
 
 #import "TimerService.h"
 #import "LocalNotificationService.h"
+#import "AlertService.h"
 
 @interface ListViewController ()
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
@@ -286,11 +287,7 @@
     }
     NSString *title = [TimerFormatter timerDateFormatWithDate:firedTimer.fireDatetime];
     NSString *message = firedTimer.message;
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-        [alertController dismissViewControllerAnimated:YES completion:nil];
-    }]];
-    [self presentViewController:alertController animated:YES completion:nil];
+    [[AlertService sharedService] showAlertViewFromViewController:self title:title message:message cancelButtonTitle:@"OK"];
 }
 
 @end

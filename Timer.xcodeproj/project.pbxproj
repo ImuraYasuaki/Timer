@@ -21,6 +21,7 @@
 		886F14161A56504400300B46 /* SystemService.m in Sources */ = {isa = PBXBuildFile; fileRef = 886F14151A56504400300B46 /* SystemService.m */; };
 		886F141A1A56AF6A00300B46 /* TimerFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 886F14191A56AF6A00300B46 /* TimerFormatter.m */; };
 		886F141D1A56B3AA00300B46 /* NSObject+PropertyList.m in Sources */ = {isa = PBXBuildFile; fileRef = 886F141C1A56B3AA00300B46 /* NSObject+PropertyList.m */; };
+		886F14201A56C7BA00300B46 /* AlertService.m in Sources */ = {isa = PBXBuildFile; fileRef = 886F141F1A56C7BA00300B46 /* AlertService.m */; };
 		88AA592E1A3DAA3600C81DDA /* TimerDTO.mm in Sources */ = {isa = PBXBuildFile; fileRef = 88AA592D1A3DAA3600C81DDA /* TimerDTO.mm */; };
 		88AA59311A45186F00C81DDA /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AA59301A45186F00C81DDA /* ListViewController.m */; };
 		88AA59341A45187300C81DDA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AA59331A45187300C81DDA /* AppDelegate.m */; };
@@ -105,6 +106,8 @@
 		886F14191A56AF6A00300B46 /* TimerFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerFormatter.m; sourceTree = "<group>"; };
 		886F141B1A56B3AA00300B46 /* NSObject+PropertyList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PropertyList.h"; sourceTree = "<group>"; };
 		886F141C1A56B3AA00300B46 /* NSObject+PropertyList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PropertyList.m"; sourceTree = "<group>"; };
+		886F141E1A56C7BA00300B46 /* AlertService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertService.h; sourceTree = "<group>"; };
+		886F141F1A56C7BA00300B46 /* AlertService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertService.m; sourceTree = "<group>"; };
 		88AA592C1A3DAA3600C81DDA /* TimerDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerDTO.h; sourceTree = "<group>"; };
 		88AA592D1A3DAA3600C81DDA /* TimerDTO.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TimerDTO.mm; sourceTree = "<group>"; };
 		88AA592F1A45186F00C81DDA /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
@@ -312,6 +315,8 @@
 				88AA593C1A45823500C81DDA /* Service.m */,
 				886F140F1A564F9D00300B46 /* LocalNotificationService.h */,
 				886F14101A564F9D00300B46 /* LocalNotificationService.m */,
+				886F141E1A56C7BA00300B46 /* AlertService.h */,
+				886F141F1A56C7BA00300B46 /* AlertService.m */,
 				886F14141A56504400300B46 /* SystemService.h */,
 				886F14151A56504400300B46 /* SystemService.m */,
 			);
@@ -492,6 +497,7 @@
 				88E2073D1A5449C2005D1C5D /* UIViewController+Defaults.m in Sources */,
 				886F14161A56504400300B46 /* SystemService.m in Sources */,
 				886F141D1A56B3AA00300B46 /* NSObject+PropertyList.m in Sources */,
+				886F14201A56C7BA00300B46 /* AlertService.m in Sources */,
 				8826596C1A3D95E90031D412 /* main.m in Sources */,
 				88EFA2851A53D77300174500 /* FunctionsView.m in Sources */,
 				88E207391A544009005D1C5D /* EditSetViewController.m in Sources */,
