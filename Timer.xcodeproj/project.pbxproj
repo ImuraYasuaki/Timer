@@ -37,7 +37,7 @@
 		88E207321A543B4D005D1C5D /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E207311A543B4D005D1C5D /* EditViewController.m */; };
 		88E207361A543C58005D1C5D /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88E207351A543C58005D1C5D /* EditViewController.xib */; };
 		88E207391A544009005D1C5D /* EditSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E207381A544009005D1C5D /* EditSetViewController.m */; };
-		88E2073D1A5449C2005D1C5D /* UIViewController+Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E2073C1A5449C2005D1C5D /* UIViewController+Defaults.m */; };
+		88E2073D1A5449C2005D1C5D /* UIView+Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E2073C1A5449C2005D1C5D /* UIView+Defaults.m */; };
 		88EFA2851A53D77300174500 /* FunctionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EFA2841A53D77300174500 /* FunctionsView.m */; };
 /* End PBXBuildFile section */
 
@@ -129,8 +129,8 @@
 		88E207351A543C58005D1C5D /* EditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
 		88E207371A544009005D1C5D /* EditSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditSetViewController.h; sourceTree = "<group>"; };
 		88E207381A544009005D1C5D /* EditSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditSetViewController.m; sourceTree = "<group>"; };
-		88E2073B1A5449C2005D1C5D /* UIViewController+Defaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Defaults.h"; sourceTree = "<group>"; };
-		88E2073C1A5449C2005D1C5D /* UIViewController+Defaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Defaults.m"; sourceTree = "<group>"; };
+		88E2073B1A5449C2005D1C5D /* UIView+Defaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Defaults.h"; sourceTree = "<group>"; };
+		88E2073C1A5449C2005D1C5D /* UIView+Defaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Defaults.m"; sourceTree = "<group>"; };
 		88E2073E1A544AA8005D1C5D /* Timer-iOS.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Timer-iOS.pch"; sourceTree = "<group>"; };
 		88EFA2831A53D77300174500 /* FunctionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionsView.h; sourceTree = "<group>"; };
 		88EFA2841A53D77300174500 /* FunctionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionsView.m; sourceTree = "<group>"; };
@@ -347,8 +347,8 @@
 		88E2073A1A5449B2005D1C5D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				88E2073B1A5449C2005D1C5D /* UIViewController+Defaults.h */,
-				88E2073C1A5449C2005D1C5D /* UIViewController+Defaults.m */,
+				88E2073B1A5449C2005D1C5D /* UIView+Defaults.h */,
+				88E2073C1A5449C2005D1C5D /* UIView+Defaults.m */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -494,7 +494,7 @@
 				8840D8901A515AC0001F3D52 /* TimerListCell.m in Sources */,
 				8840D8861A4CF732001F3D52 /* RegistrationLogic.m in Sources */,
 				8840D8891A4D8B6C001F3D52 /* ToastView.m in Sources */,
-				88E2073D1A5449C2005D1C5D /* UIViewController+Defaults.m in Sources */,
+				88E2073D1A5449C2005D1C5D /* UIView+Defaults.m in Sources */,
 				886F14161A56504400300B46 /* SystemService.m in Sources */,
 				886F141D1A56B3AA00300B46 /* NSObject+PropertyList.m in Sources */,
 				886F14201A56C7BA00300B46 /* AlertService.m in Sources */,
@@ -645,6 +645,7 @@
 					"${SRCROOT}/Build/Products/Debug-iphonesimulator/include/",
 				);
 				INFOPLIST_FILE = Timer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -664,6 +665,7 @@
 					"${SRCROOT}/Build/Products/Debug-iphonesimulator/include/",
 				);
 				INFOPLIST_FILE = Timer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";

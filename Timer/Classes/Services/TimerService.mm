@@ -139,6 +139,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 @implementation TimerService (Convert)
+
 + (TimerDTO *)timerDTOFromTimer:(const core::Timer &)timer {
     NSDate *fireDate = [NSDate dateWithTimeIntervalSince1970:timer.getFireDatetime()];
     NSString *message = [NSString stringWithUTF8String:timer.getMessage().c_str()];

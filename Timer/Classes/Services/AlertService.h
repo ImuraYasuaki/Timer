@@ -8,7 +8,11 @@
 
 #import "Service.h"
 
+typedef void (^AlertActionBlock)(NSString *title);
+
 @interface AlertService : Service
+
+- (id)alertActionWithTitle:(NSString *)title action:(AlertActionBlock)actionBlock;
 
 - (void)showAlertViewFromViewController:(UIViewController *)viewController title:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle actions:(NSArray *)actions;
 - (void)showAlertViewFromViewController:(UIViewController *)viewController title:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle;

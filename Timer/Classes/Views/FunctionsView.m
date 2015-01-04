@@ -121,7 +121,7 @@
 - (void)show {
     CGRect functionsViewFrame = self.bounds;
     functionsViewFrame.origin = self.shownPosition;
-    [UIView animateWithDuration:[UIViewController defaultFastAnimationDuration] animations:^{
+    [UIView animateWithDuration:[UIView defaultFastAnimationDuration] animations:^{
         [self setFrame:functionsViewFrame];
         [self setAlpha:self.visibleAlpha];
     } completion:^(BOOL finished) {
@@ -132,7 +132,7 @@
 - (void)hide {
     CGRect frame = self.frame;
     frame.origin = self.hiddenPosition;
-    [UIView animateWithDuration:[UIViewController defaultFastAnimationDuration] animations:^{
+    [UIView animateWithDuration:[UIView defaultFastAnimationDuration] animations:^{
         [self setFrame:frame];
         [self setAlpha:0.2f];
     } completion:^(BOOL finished) {

@@ -1,5 +1,5 @@
 //
-//  UIViewController+Defaults.h
+//  UIView+Defaults.h
 //  Timer
 //
 //  Created by myuon on 2015/01/01.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (Defaults)
+@interface UIView (Defaults)
 
 + (CGFloat)defaultAnimationDuration;
 + (CGFloat)defaultFastAnimationDuration;

@@ -9,6 +9,6 @@
 #ifndef Timer_Timer_iOS_pch
 #define Timer_Timer_iOS_pch
 
-#import "UIViewController+Defaults.h"
+#import "UIView+Defaults.h"
 
 #endif

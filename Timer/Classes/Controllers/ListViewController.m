@@ -85,7 +85,7 @@
         [self hideEditFunctions];
     }
     if (self.functionsView) {
-        [UIView animateWithDuration:[self.class defaultAnimationDuration] animations:^{
+        [UIView animateWithDuration:[UIView defaultAnimationDuration] animations:^{
             [self.functionsView setAlpha:0.8f];
         }];
     }
@@ -269,8 +269,6 @@
 @end
 
 ////////////////////////////////////////////////////////////////////////////////
-
-#import "SystemService.h"
 
 @implementation ListViewController (Notification)
 
