@@ -1,0 +1,7 @@
+# 概要
+
+このプロジェクトは、iOS向けアプリにObjective-CとC++を使うサンプルとなることを目的としています。
+以下の２プロジェクトに依存します。（TODO: submoduling）
+* TimerCore (https://github.com/YasuakiNakazawa/TimerCore.git)
+* Graphics (https://github.com/YasuakiNakazawa/Graphics.git)
+
