@@ -149,7 +149,6 @@
 
 - (void)hideEditFunctions {
     [self.functionsView hide];
-    [self setFunctionsView:nil];
     [[self.tableView indexPathsForSelectedRows] enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     }];
