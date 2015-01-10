@@ -14,7 +14,7 @@
 #import "RegisterViewController.h"
 #import "EditSetViewController.h"
 
-#import "FunctionsView.h"
+#import <Graphics/GYFunctionsView.h>
 #import "TimerListCell.h"
 
 #import "TimerFormatter.h"
@@ -25,7 +25,7 @@
 
 @interface ListViewController ()
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, weak) FunctionsView *functionsView;
+@property (nonatomic, weak) GYFunctionsView *functionsView;
 @property (nonatomic, strong) NSMutableArray *timers;
 - (void)reloadViews;
 - (BOOL)updateTimers;
@@ -110,38 +110,41 @@
 }
 
 - (void)showEditFunctions {
-    __block CGFloat backgroundColorRed = 250.0f / 255.0f;
-    __block CGFloat backgroundColorGreen = 180.0f / 255.0f;
-    __block CGFloat backgroundColorBlue = 80.0f / 255.0f;
-    __block CGFloat backgroundColorAlpha = 0.8f;
-    [self setFunctionsView:[FunctionsView showFunctionsViewFrom:FunctionsViewPositionRight titles:@[@"edit", @"delete", @"enable", @"disable", @"cancel"] visualize:^(FunctionsView *functionsView, UIView *view, UIButton *button, NSString *title, NSUInteger index) {
-        BOOL cancelButton = [title isEqualToString:@"cancel"];
-        UIColor *buttonTitleColor = cancelButton ? [UIColor redColor] : [UIColor blueColor];
-        [button setTitleColor:buttonTitleColor forState:UIControlStateNormal];
+    if (!self.functionsView) {
+        __block CGFloat backgroundColorRed = 250.0f / 255.0f;
+        __block CGFloat backgroundColorGreen = 180.0f / 255.0f;
+        __block CGFloat backgroundColorBlue = 80.0f / 255.0f;
+        __block CGFloat backgroundColorAlpha = 0.8f;
+        [self setFunctionsView:[GYFunctionsView functionsViewFrom:GYFunctionsViewPositionRight titles:@[@"edit", @"delete", @"enable", @"disable", @"cancel"] visualize:^(GYFunctionsView *functionsView, UIView *view, UIButton *button, NSString *title, NSUInteger index) {
+            BOOL cancelButton = [title isEqualToString:@"cancel"];
+            UIColor *buttonTitleColor = cancelButton ? [UIColor redColor] : [UIColor blueColor];
+            [button setTitleColor:buttonTitleColor forState:UIControlStateNormal];
 
-        UIColor *color = [UIColor colorWithRed:backgroundColorRed green:backgroundColorGreen blue:backgroundColorBlue alpha:backgroundColorAlpha];
-        [button setBackgroundColor:color];
+            UIColor *color = [UIColor colorWithRed:backgroundColorRed green:backgroundColorGreen blue:backgroundColorBlue alpha:backgroundColorAlpha];
+            [view setBackgroundColor:color];
 
-        backgroundColorRed *= 1.4f;
-        backgroundColorGreen *= 1.4f;
-        backgroundColorBlue *= 1.3f;
-    } selected:^(FunctionsView *functionsView, UIButton *sender, NSUInteger index) {
-        if ([sender.titleLabel.text isEqualToString:@"edit"]) {
-            [self didTapEditButton:sender];
-            [UIView animateWithDuration:0.4f animations:^{
-                [functionsView setAlpha:0.0f];
-            }];
-            return;
-        }
-        if ([sender.titleLabel.text isEqualToString:@"delete"]) {
-            [self didTapDeleteButton:sender];
-        } else if ([sender.titleLabel.text isEqualToString:@"disable"]) {
-            [self didTapDisableButton:sender];
-        } else if ([sender.titleLabel.text isEqualToString:@"enable"]) {
-            [self didTapEnableButton:sender];
-        }
-        [self hideEditFunctions];
-    }]];
+            backgroundColorRed *= 1.4f;
+            backgroundColorGreen *= 1.4f;
+            backgroundColorBlue *= 1.3f;
+        } selected:^(GYFunctionsView *functionsView, UIButton *sender, NSUInteger index) {
+            if ([sender.titleLabel.text isEqualToString:@"edit"]) {
+                [self didTapEditButton:sender];
+                [UIView animateWithDuration:0.4f animations:^{
+                    [functionsView setAlpha:0.0f];
+                }];
+                return;
+            }
+            if ([sender.titleLabel.text isEqualToString:@"delete"]) {
+                [self didTapDeleteButton:sender];
+            } else if ([sender.titleLabel.text isEqualToString:@"disable"]) {
+                [self didTapDisableButton:sender];
+            } else if ([sender.titleLabel.text isEqualToString:@"enable"]) {
+                [self didTapEnableButton:sender];
+            }
+            [self hideEditFunctions];
+        }]];
+    }
+    [self.functionsView show];
 }
 
 - (void)hideEditFunctions {

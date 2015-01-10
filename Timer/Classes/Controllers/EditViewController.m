@@ -8,7 +8,7 @@
 
 #import "EditViewController.h"
 
-#import "ToastView.h"
+#import <Graphics/GYToastView.h>
 
 #import "TimerService.h"
 
@@ -39,7 +39,7 @@
 - (void)didTapDoneButton:(id)sender {
     BOOL succeeded = [[TimerService sharedService] saveTimer:self.updatedTimer];
     NSString *message = succeeded ? @"Updated !" : @"Could not update!";
-    [ToastView showToastViewWithMessage:message duration:ToastViewDurationLong];
+    [GYToastView showToastViewWithMessage:message duration:GYToastViewDurationLong];
 }
 
 - (TimerDTO *)updatedTimer {

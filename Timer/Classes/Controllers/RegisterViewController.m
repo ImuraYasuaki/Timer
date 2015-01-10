@@ -8,6 +8,8 @@
 
 #import "RegisterViewController.h"
 
+#import <Graphics/GYToastView.h>
+
 // Categories
 #import "NSObject+PropertyList.h"
 
@@ -17,8 +19,6 @@
 #import "LocalNotificationService.h"
 
 #import "RegistrationLogic.h"
-
-#import "ToastView.h"
 
 @interface RegisterViewController ()
 
@@ -78,18 +78,18 @@
     TimerDTO *timer = self.timerDTO;
     BOOL canRegister = [RegistrationLogic canRegisterWithTimer:timer];
     if (!canRegister) {
-        [ToastView showToastViewWithMessage:@"should set fire Date time." duration:ToastViewDurationLong];
+        [GYToastView showToastViewWithMessage:@"should set fire Date time." duration:GYToastViewDurationLong];
         return;
     }
     BOOL succeeded = [[TimerService sharedService] saveTimer:timer];
     if (succeeded) {
-        [ToastView showToastViewWithMessage:@"succeeded." duration:ToastViewDurationLong];
+        [GYToastView showToastViewWithMessage:@"succeeded." duration:GYToastViewDurationLong];
 
         NSDictionary *userInfo = @{[AppDelegate firedTimerKey]: timer.propertyListValue};
         [[LocalNotificationService sharedService] scheduleLocalNotificationWithMessage:timer.message atDate:timer.fireDatetime userInfo:userInfo];
     } else {
         timer = nil;
-        [ToastView showToastViewWithMessage:@"you missed." duration:ToastViewDurationLong];
+        [GYToastView showToastViewWithMessage:@"you missed." duration:GYToastViewDurationLong];
     }
     BOOL canFinish = self.completionBlock ? self.completionBlock(timer) : YES;
     if (canFinish) {
