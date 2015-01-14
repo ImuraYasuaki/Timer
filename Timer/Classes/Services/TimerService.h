@@ -6,11 +6,11 @@
 //  Copyright (c) 2014年 yasu. All rights reserved.
 //
 
-#import "Service.h"
+#import <ProjectCore/PCService.h>
 
 #import "TimerDTO.h"
 
-@interface TimerService : Service
+@interface TimerService : PCService
 
 - (NSArray *)allTimers;
 - (NSArray *)allTimersShouldPostponePastTimers:(BOOL)shouldPostponePastTimers;

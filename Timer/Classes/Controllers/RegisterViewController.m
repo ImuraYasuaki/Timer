@@ -9,6 +9,7 @@
 #import "RegisterViewController.h"
 
 #import <Graphics/GYToastView.h>
+#import <ProjectCore/PCLocalNotificationService.h>
 
 // Categories
 #import "NSObject+PropertyList.h"
@@ -16,7 +17,6 @@
 #import "AppDelegate.h"
 
 #import "TimerService.h"
-#import "LocalNotificationService.h"
 
 #import "RegistrationLogic.h"
 
@@ -86,7 +86,7 @@
         [GYToastView showToastViewWithMessage:@"succeeded." duration:GYToastViewDurationLong];
 
         NSDictionary *userInfo = @{[AppDelegate firedTimerKey]: timer.propertyListValue};
-        [[LocalNotificationService sharedService] scheduleLocalNotificationWithMessage:timer.message atDate:timer.fireDatetime userInfo:userInfo];
+        [[PCLocalNotificationService sharedService] scheduleLocalNotificationWithMessage:timer.message atDate:timer.fireDatetime userInfo:userInfo];
     } else {
         timer = nil;
         [GYToastView showToastViewWithMessage:@"you missed." duration:GYToastViewDurationLong];

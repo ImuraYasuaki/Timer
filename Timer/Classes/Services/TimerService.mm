@@ -12,10 +12,9 @@
 #import "AppDelegate.h"
 
 #include <TimerLib/TimerManager.h>
+#import <ProjectCore/PCLocalNotificationService.h>
 
 #import "Configuration.h"
-
-#import "LocalNotificationService.h"
 
 @interface TimerService (Convert)
 + (TimerDTO *)timerDTOFromTimer:(const core::Timer &)timer;
@@ -91,12 +90,12 @@
         }
         NSDictionary *timerPropertyList = [timer propertyListValue];
         NSDictionary *userInfo = @{[AppDelegate firedTimerKey]: timerPropertyList};
-        [[LocalNotificationService sharedService] scheduleLocalNotificationWithMessage:timer.message atDate:timer.fireDatetime userInfo:userInfo];
+        [[PCLocalNotificationService sharedService] scheduleLocalNotificationWithMessage:timer.message atDate:timer.fireDatetime userInfo:userInfo];
     } else {
         if (!scheduled) {
             return;
         }
-        [[LocalNotificationService sharedService] cancelScheduledLocalNotificationAtDate:timer.fireDatetime];
+        [[PCLocalNotificationService sharedService] cancelScheduledLocalNotificationAtDate:timer.fireDatetime];
     }
 }
 
@@ -104,7 +103,7 @@
     if (timer.didFinish) {
         return NO;
     }
-    return [[LocalNotificationService sharedService] didScheduleLocalNotificationAtDate:timer.fireDatetime];
+    return [[PCLocalNotificationService sharedService] didScheduleLocalNotificationAtDate:timer.fireDatetime];
 }
 
 @end

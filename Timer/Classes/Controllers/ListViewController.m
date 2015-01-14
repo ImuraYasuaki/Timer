@@ -8,20 +8,21 @@
 
 #import "ListViewController.h"
 
+#import <ProjectCore/PCLocalNotificationService.h>
+#import <ProjectCore/PCAlertService.h>
+#import <Graphics/GYFunctionsView.h>
+
 #import "NSObject+PropertyList.h"
 #import "AppDelegate.h"
 
 #import "RegisterViewController.h"
 #import "EditSetViewController.h"
 
-#import <Graphics/GYFunctionsView.h>
 #import "TimerListCell.h"
 
 #import "TimerFormatter.h"
 
 #import "TimerService.h"
-#import "LocalNotificationService.h"
-#import "AlertService.h"
 
 @interface ListViewController ()
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
@@ -287,7 +288,7 @@
     }
     NSString *title = [TimerFormatter timerDateFormatWithDate:firedTimer.fireDatetime];
     NSString *message = firedTimer.message;
-    [[AlertService sharedService] showAlertViewFromViewController:self title:title message:message cancelButtonTitle:@"OK"];
+    [[PCAlertService sharedService] showAlertViewFromViewController:self title:title message:message cancelButtonTitle:@"OK"];
 }
 
 @end

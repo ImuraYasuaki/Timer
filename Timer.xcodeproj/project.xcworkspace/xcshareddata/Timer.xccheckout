@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0812BB86-9152-4313-8D9B-25C2857AFA32</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Timer</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3EB18BD0935EA08C0A27598B30C0AC21F3CEEE7F</key>
+		<string>https://github.com/YasuakiNakazawa/Timer.git</string>
+		<key>6A6EFE8EB6F0D094B6380545F69EC858A02112F9</key>
+		<string>https://github.com/YasuakiNakazawa/TimerCore.git</string>
+		<key>7B4E3A7CB2BDA8E502C01F583EA477CC994BF9B6</key>
+		<string>https://github.com/YasuakiNakazawa/Graphics.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Timer.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3EB18BD0935EA08C0A27598B30C0AC21F3CEEE7F</key>
+		<string>../..</string>
+		<key>6A6EFE8EB6F0D094B6380545F69EC858A02112F9</key>
+		<string>../../../Timer_Core</string>
+		<key>7B4E3A7CB2BDA8E502C01F583EA477CC994BF9B6</key>
+		<string>../../../Graphics</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/YasuakiNakazawa/Timer.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3EB18BD0935EA08C0A27598B30C0AC21F3CEEE7F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7B4E3A7CB2BDA8E502C01F583EA477CC994BF9B6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Graphics</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6A6EFE8EB6F0D094B6380545F69EC858A02112F9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Timer_Core</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3EB18BD0935EA08C0A27598B30C0AC21F3CEEE7F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>timer-ios</string>
+		</dict>
+	</array>
+</dict>
+</plist>
